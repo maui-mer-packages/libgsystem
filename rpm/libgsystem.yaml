@@ -1,0 +1,45 @@
+Name        : libgsystem
+Version     : 2014.2
+Release     : 1
+Group       : System/GUI/Other
+License     : LGPLv2+
+Summary     : GIO-based library with Unix/Linux specific API
+Description : |
+  LibGSystem is a GIO-based library targeted primarily
+  for use by operating system components.
+URL         : https://wiki.gnome.org/Projects/LibGSystem
+Sources     :
+    - "%{name}-%{version}.tar.xz"
+SetupOptions: -q -n %{name}-%{version}/upstream
+RpmLintIgnore:
+    - files-duplicate
+
+PkgBR:
+    - autoconf
+    - automake
+    - libtool
+    - libattr-devel
+    - gobject-introspection-devel
+PkgConfigBR:
+    - gio-unix-2.0
+    - gtk-doc
+
+Configure: reconfigure
+
+Files:
+    - "%doc README COPYING"
+    - "%{_libdir}/%{name}.so.*"
+    - "%{_libdir}/girepository-*/*.typelib"
+
+SubPackages:
+    - Name: devel
+      Summary: Development files for %{name}
+      Group: Development/Libraries
+      Description: |
+        The %{name}-devel package contains libraries and header files for
+        developing applications that use %{name}.
+      Files:
+          - "%{_includedir}/*"
+          - "%{_libdir}/%{name}.so"
+          - "%{_libdir}/pkgconfig/%{name}.pc"
+          - "%{_datadir}/gir-*/*.gir"

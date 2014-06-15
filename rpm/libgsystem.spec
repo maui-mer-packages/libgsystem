@@ -50,6 +50,7 @@ developing applications that use %{name}.
 
 %build
 # >> build pre
+mkdir m4
 # << build pre
 
 %reconfigure --disable-static

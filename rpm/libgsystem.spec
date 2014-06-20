@@ -21,11 +21,13 @@ Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(gio-unix-2.0)
 BuildRequires:  pkgconfig(gtk-doc)
+BuildRequires:  pkgconfig(systemd)
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
 BuildRequires:  libattr-devel
 BuildRequires:  gobject-introspection-devel
+BuildRequires:  systemd-devel
 
 %description
 LibGSystem is a GIO-based library targeted primarily
@@ -36,6 +38,7 @@ for use by operating system components.
 Summary:    Development files for %{name}
 Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
+Requires:   gobject-introspection-devel
 
 %description devel
 The %{name}-devel package contains libraries and header files for

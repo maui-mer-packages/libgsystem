@@ -23,6 +23,8 @@ PkgBR:
 PkgConfigBR:
     - gio-unix-2.0
     - gtk-doc
+    - systemd
+    - libsystemd-journal
 
 Configure: reconfigure
 
@@ -38,6 +40,8 @@ SubPackages:
       Description: |
         The %{name}-devel package contains libraries and header files for
         developing applications that use %{name}.
+      Requires:
+          - gobject-introspection-devel
       Files:
           - "%{_includedir}/*"
           - "%{_libdir}/%{name}.so"
